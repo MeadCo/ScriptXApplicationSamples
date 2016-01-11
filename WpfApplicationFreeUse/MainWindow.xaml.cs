@@ -46,12 +46,15 @@ namespace WpfApplicationFreeUse
             WebBrowser.Navigate(HomeURL);
         }
 
+        // simple progress monitoring
+        #region progressMonitor
         private void EnableUI(bool bEnable)
         {
             PreviewButton.IsEnabled = bEnable;
             PrintButton.IsEnabled = bEnable;
             NavigationUrl.IsEnabled = bEnable;
         }
+
 
         private void WebBrowser_OnNavigated(object sender, NavigationEventArgs e)
         {
@@ -70,7 +73,31 @@ namespace WpfApplicationFreeUse
             EnableUI(true);
             NavigationUrl.Text = $"Loaded :: {e.Uri.ToString()}";
         }
+        #endregion
 
+        // trivial naviation UI
+        #region navUI
+        private void NavigationUrl_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                GoButton_OnClick(this, new RoutedEventArgs());
+            }
+        }
+
+        private void GoButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Uri uri = new Uri(NavigationUrl.Text);
+                WebBrowser.Navigate(uri);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show($"Invalid address: {exception.Message}",this.Title);
+            }
+        }
+        #endregion
 
         private void PrintButton_OnClick(object sender, RoutedEventArgs e)
         {
@@ -135,7 +162,6 @@ namespace WpfApplicationFreeUse
                 }
             }
         }
-
 
     }
 }
