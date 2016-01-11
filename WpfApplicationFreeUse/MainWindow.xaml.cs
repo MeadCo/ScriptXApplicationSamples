@@ -91,6 +91,8 @@ namespace WpfApplicationFreeUse
         private void PrintOrPreview(PrintOperation operation)
         {
             var document = (IHTMLDocument3) WebBrowser.Document;
+
+            // 'de-facto' id is 'factory'
             var factoryElement = document.getElementById("factory");
 
             // does the factory object exist?
@@ -126,6 +128,10 @@ namespace WpfApplicationFreeUse
                             printer.Preview();
                             break;
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Unable to find or create MeadCo ScriptX.\n\nIs MeadCo ScriptX installed?",this.Title);
                 }
             }
         }

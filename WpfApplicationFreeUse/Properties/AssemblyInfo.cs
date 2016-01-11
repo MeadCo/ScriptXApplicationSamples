@@ -8,11 +8,11 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("WpfApplicationFreeUse")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Illustratest the free use of MeadCo ScriptX")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("WpfApplicationFreeUse")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCompany("Mead & Co Ltd")]
+[assembly: AssemblyProduct("MeadCo ScriptX")]
+[assembly: AssemblyCopyright("Copyright © Mead & Co Ltd. 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
