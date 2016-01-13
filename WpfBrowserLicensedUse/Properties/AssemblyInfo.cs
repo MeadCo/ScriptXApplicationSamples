@@ -7,14 +7,15 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("WpfBrowserLicensedUse")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("WpfBrowserLicensedUse")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTitle("ScriptX Sample :: Licensed Application")] 
+[assembly: AssemblyDescription("Printing Html with ScriptX")] 
+[assembly: AssemblyConfiguration("")] 
+[assembly: AssemblyCompany("Mead & Co Ltd.")] 
+[assembly: AssemblyProduct("ScriptX Printing Sample")] 
+[assembly: AssemblyCopyright("Copyright © 2015, Mead & Co Ltd.")] 
+[assembly: AssemblyTrademark("")] 
 [assembly: AssemblyCulture("")]
+
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
