@@ -166,6 +166,13 @@ namespace WpfBrowserLicensedUse
                     printer.topMargin = 1;
                     printer.rightMargin = 1;
                     printer.bottomMargin = 1;
+
+                    // and html headers/footer .... v7.7 and earlier only support allPagesHeader/Footer and firstPageHeader/Footer from
+                    // applications.
+                    var ef = factory.printing.enhancedFormatting;
+                    ef.allPagesHeader = "<div style='border: 1pt solid red; font: bold 12pt Arial; background: threedface; color: navy; padding-top: 5px; padding-bottom: 6px; background-image: url(http://www.meadroid.com/images/non_act_bg.jpg)'><i><center> --- Header for page <b> &p </b> ---</i></center></div>";
+                    ef.allPagesFooter = "<div style='border: 1pt solid red; font: bold 12pt Arial; background: threedface; color: navy; padding-top: 5px; padding-bottom: 6px; background-image: url(http://www.meadroid.com/images/non_act_bg.jpg)'><i><center> --- Footer for page <b> &p </b> ---</i></center></div>";
+
                     switch (operation)
                     {
                         case PrintOperation.Print:
