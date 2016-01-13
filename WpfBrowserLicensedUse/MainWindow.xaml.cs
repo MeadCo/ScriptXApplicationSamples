@@ -16,8 +16,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+// A simple demonstration of printing the content displayed in a webbrowser control
+// using some advanced features of ScriptX that require a license.
+// 
+// The MeadCo license is described in app.config and is obtained from the MeadCo Warehouse. It will
+// likely be invalid when you try and run this code. Please contact us at feedback@meadroid.com
+// and we will enable it so you can test/evaluate the available features.
+
 namespace WpfBrowserLicensedUse
 {
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -77,7 +85,7 @@ namespace WpfBrowserLicensedUse
         }
         #endregion
 
-        // trivial naviation UI
+        // trivial navigation UI
         #region navUI
         private void NavigationUrl_OnKeyDown(object sender, KeyEventArgs e)
         {
@@ -113,9 +121,9 @@ namespace WpfBrowserLicensedUse
 
         /// <summary>
         /// PrintOrPreview the document displayed in the WebBrowser.
-        /// Adds ScriptX to the page if required, or uses it if already there
+        /// Adds the ScriptX factory to the page if required, or uses it if already there
         /// Defines custom headers and footers for the print and as we are licensed
-        /// we can set margin measure (and a whole lot of other things!)
+        /// we can set margin measure (and could set a whole lot of other things!)
         /// 
         /// Note that we dont add security manager to the html document, the app is licensed
         /// so it isnt needed.
@@ -181,6 +189,7 @@ namespace WpfBrowserLicensedUse
 
         }
 
+        #region licensing
         /// <summary>
         /// Take the license details from app.config and license this application for use of ScriptX Advanced features
         /// </summary>
@@ -220,5 +229,6 @@ namespace WpfBrowserLicensedUse
             }
 
         }
+        #endregion
     }
 }
