@@ -25,14 +25,14 @@ namespace WpfApplicationWalkthrough
             InitializeComponent();
         }
 
-        private readonly string _homeUrl = "http://scriptxsamples.meadroid.com/Licensed/SalesInfo/Release/DOCTYPE";
+        //private readonly string _homeUrl = "http://scriptxsamples.meadroid.com/Licensed/SalesInfo/Release/DOCTYPE";
+        private readonly string _homeUrl = "http://www.meadroid.com";
 
         private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
             // the page to print -- this page uses a media print stylesheet
-            // Browser.Navigate("http://www.meadroid.com");
             Browser.Navigate(_homeUrl);
-            // ApplyScriptXLicense();
+            ApplyScriptXLicense();
 
             // select the default printer ...
             var defaultPrinter = new LocalPrintServer().DefaultPrintQueue;
