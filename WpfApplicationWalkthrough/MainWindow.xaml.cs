@@ -1,7 +1,10 @@
-﻿using System;
+﻿using mshtml;
+using System;
 using System.Configuration;
 using System.Printing;
 using System.Windows;
+using System.Windows.Controls;
+
 
 namespace WpfApplicationWalkthrough
 {
@@ -22,11 +25,14 @@ namespace WpfApplicationWalkthrough
             InitializeComponent();
         }
 
+        private readonly string _homeUrl = "http://scriptxsamples.meadroid.com/Licensed/SalesInfo/Release/DOCTYPE";
+
         private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
-            // the page to print -- this page use a media print stylesheet
-            Browser.Navigate("http://www.meadroid.com");
-            ApplyScriptXLicense();
+            // the page to print -- this page uses a media print stylesheet
+            // Browser.Navigate("http://www.meadroid.com");
+            Browser.Navigate(_homeUrl);
+            // ApplyScriptXLicense();
 
             // select the default printer ...
             var defaultPrinter = new LocalPrintServer().DefaultPrintQueue;
@@ -47,7 +53,8 @@ namespace WpfApplicationWalkthrough
             string licenseUrl = AppDomain.CurrentDomain.BaseDirectory + "sxlic.mlf";
             try
             {
-                secMgr.Apply(licenseUrl, ConfigurationManager.AppSettings["ScriptXLicenseGuid"], Int32.Parse(ConfigurationManager.AppSettings["ScriptXLicenseRevision"]));
+                secMgr.Apply(licenseUrl, ConfigurationManager.AppSettings["ScriptXLicenseGuid"],
+                    Int32.Parse(ConfigurationManager.AppSettings["ScriptXLicenseRevision"]));
             }
             catch (Exception e)
             {
@@ -58,7 +65,7 @@ namespace WpfApplicationWalkthrough
 
         private void BtnPrint_OnClick(object sender, RoutedEventArgs e)
         {
-            PrintDocument(PrintOperation.Print); 
+            PrintDocument(PrintOperation.Print);
         }
 
         private void BtnPreview_OnClick(object sender, RoutedEventArgs e)
@@ -72,7 +79,75 @@ namespace WpfApplicationWalkthrough
         /// <param name="operation"></param>
         private void PrintDocument(PrintOperation operation)
         {
-            
+            var printer = HtmlPrinter;
+            if (printer != null)
+            {
+                printer.printer = CmbPrinters.SelectedValue.ToString();
+                printer.paperSource = "A4";
+
+                printer.header = this.Title;
+                printer.footer = "&D&b&b&P of &p";
+
+                // use some advanced features ...
+                printer.SetMarginMeasure(2); // set units to inches
+                printer.leftMargin = 1.5f;
+                printer.topMargin = 1;
+                printer.rightMargin = 1;
+                printer.bottomMargin = 1;
+
+                switch (operation)
+                {
+                    case PrintOperation.Print:
+                        printer.Print(false); // prompt will only be obeyed on intranet
+                        break;
+
+                    case PrintOperation.Preview:
+                        printer.Preview();
+                        break;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Unable to find a printer", this.Title);
+            }
+        }
+
+        private ScriptX.printing HtmlPrinter
+        {
+            get
+            {
+                var document = (IHTMLDocument3) Browser.Document;
+
+                // 'de-facto' id is 'factory'
+                var factoryElement = (IHTMLObjectElement) document.getElementById("factory");
+
+                // does the factory object exist?
+                if (factoryElement == null)
+                {
+                    // the html to insert to put the ScriptX factory on the document.
+                    const string factoryObjectHtml = "<object id=\"factory\" style=\"display:none\" classid=\"clsid:1663ed61-23eb-11d2-b92f-008048fdd814\"></object>";
+
+                    // If not then create it.
+                    ((IHTMLDocument2) Browser.Document).body.insertAdjacentHTML("beforeEnd",
+                        factoryObjectHtml);
+
+                    factoryElement = (IHTMLObjectElement) document.getElementById("factory");
+                }
+
+                if (factoryElement != null)
+                {
+                    // an object 'factory' exists, but is the object loaded (it may not be installed)?
+                    ScriptX.Factory factory = factoryElement.@object;
+                    if (factory != null)
+                    {
+                        // we have a factory, get printing object
+                        ScriptX.printing printer = factory.printing;
+                        return printer;
+                    }
+                }
+
+                return null;
+            }
         }
     }
 }
