@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{C2676582-0
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApplicationWalkthrough", "WpfApplicationWalkthrough\WpfApplicationWalkthrough.csproj", "{1406A4FD-ABB4-46C5-8E52-77C2BC6ABD48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{22A6DFC6-AA20-4FB1-A709-E9ACCC9CD03F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22A6DFC6-AA20-4FB1-A709-E9ACCC9CD03F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22A6DFC6-AA20-4FB1-A709-E9ACCC9CD03F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1406A4FD-ABB4-46C5-8E52-77C2BC6ABD48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1406A4FD-ABB4-46C5-8E52-77C2BC6ABD48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1406A4FD-ABB4-46C5-8E52-77C2BC6ABD48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1406A4FD-ABB4-46C5-8E52-77C2BC6ABD48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
