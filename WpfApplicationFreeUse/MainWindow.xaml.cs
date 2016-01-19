@@ -59,19 +59,19 @@ namespace WpfApplicationFreeUse
         private void WebBrowser_OnNavigated(object sender, NavigationEventArgs e)
         {
             EnableUI(false);
-            NavigationUrl.Text = $"Loading :: {e.Uri.ToString()}";
+            NavigationUrl.Text = String.Format("Loading :: {0}",e.Uri.ToString());
         }
 
         private void WebBrowser_OnNavigating(object sender, NavigatingCancelEventArgs e)
         {
             EnableUI(false);
-            if (NavigationUrl != null) NavigationUrl.Text = $"Finding :: {e.Uri.ToString()}";
+            if (NavigationUrl != null) NavigationUrl.Text = String.Format("Finding :: {0}",e.Uri.ToString());
         }
 
         private void WebBrowser_OnLoadCompleted(object sender, NavigationEventArgs e)
         {
             EnableUI(true);
-            NavigationUrl.Text = $"Loaded :: {e.Uri.ToString()}";
+            NavigationUrl.Text = String.Format("Loaded :: {0}",e.Uri.ToString());
         }
         #endregion
 
@@ -94,7 +94,7 @@ namespace WpfApplicationFreeUse
             }
             catch (Exception exception)
             {
-                MessageBox.Show($"Invalid address: {exception.Message}",this.Title);
+                MessageBox.Show(String.Format("Invalid address: {0}",exception.Message),this.Title);
             }
         }
         #endregion
