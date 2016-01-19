@@ -69,19 +69,19 @@ namespace WpfBrowserLicensedUse
         private void WebBrowser_OnNavigated(object sender, NavigationEventArgs e)
         {
             EnableUi(false);
-            NavigationUrl.Text = $"Loading :: {e.Uri.ToString()}";
+            NavigationUrl.Text = String.Format("Loading :: {0}",e.Uri.ToString());
         }
 
         private void WebBrowser_OnNavigating(object sender, NavigatingCancelEventArgs e)
         {
             EnableUi(false);
-            if (NavigationUrl != null) NavigationUrl.Text = $"Finding :: {e.Uri.ToString()}";
+            if (NavigationUrl != null) NavigationUrl.Text = String.Format("Finding :: {0}",e.Uri.ToString());
         }
 
         private void WebBrowser_OnLoadCompleted(object sender, NavigationEventArgs e)
         {
             EnableUi(true);
-            NavigationUrl.Text = $"Loaded :: {e.Uri.ToString()}";
+            NavigationUrl.Text = String.Format("Loaded :: {0}",e.Uri.ToString());
         }
         #endregion
 
@@ -104,7 +104,7 @@ namespace WpfBrowserLicensedUse
             }
             catch (Exception exception)
             {
-                MessageBox.Show($"Invalid address: {exception.Message}", this.Title);
+                MessageBox.Show(String.Format("Invalid address: {0}",exception.Message), this.Title);
             }
         }
         #endregion
@@ -208,7 +208,7 @@ namespace WpfBrowserLicensedUse
             uriBuilder.Scheme = "http";
             uriBuilder.Host = ConfigurationManager.AppSettings["ScriptXLicenseHost"];
 
-            uriBuilder.Path = $"download/{licenseGuid.ToString()}/mlf";
+            uriBuilder.Path = String.Format("download/{0}/mlf",licenseGuid.ToString());
         
             ApplyScriptXLicense(uriBuilder.Uri,
                 licenseGuid, 
