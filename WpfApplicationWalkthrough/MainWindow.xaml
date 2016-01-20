@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApplicationWalkthrough"
         xmlns:Printing="clr-namespace:System.Drawing.Printing;assembly=System.Drawing"        
         mc:Ignorable="d"
-        Title="ScriptX Sample :: WPF Walkthrough" Height="350" Width="525" Loaded="MainWindow_OnLoaded">
+        Title="ScriptX Sample :: WPF Walkthrough" Height="620" Width="840" Loaded="MainWindow_OnLoaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -14,8 +14,8 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <ComboBox x:Name="CmbPrinters" Width="300" Margin="10" ItemsSource="{x:Static Printing:PrinterSettings.InstalledPrinters}"/>
-            <Button x:Name="BtnPrint" Content="Print" Margin="10" Padding="10,2" Click="BtnPrint_OnClick" />
-            <Button x:Name="BtnPreview" Content="Preview" Margin="10" Padding="10,2" Click="BtnPreview_OnClick"/>
+            <Button x:Name="BtnPrint" Content="Print" Margin="0,10,10,10" Padding="10,2" Click="BtnPrint_OnClick" />
+            <Button x:Name="BtnPreview" Content="Preview" Margin="0,10" Padding="10,2" Click="BtnPreview_OnClick"/>
         </StackPanel>
         <WebBrowser x:Name="Browser" HorizontalAlignment="Left" Margin="10,10,10,0" Grid.Row="0"/>
     </Grid>
