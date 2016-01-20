@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:WpfApplicationWalkthrough"
         xmlns:Printing="clr-namespace:System.Drawing.Printing;assembly=System.Drawing"        
         mc:Ignorable="d"
+        Icon="./scriptx.ico"
         Title="ScriptX Sample :: WPF Walkthrough" Height="620" Width="840" Loaded="MainWindow_OnLoaded">
     <Grid>
         <Grid.RowDefinitions>
