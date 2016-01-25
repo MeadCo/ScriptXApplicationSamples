@@ -92,23 +92,24 @@ namespace WpfApplicationWalkthrough
                     printer.header = this.Title;
                     printer.footer = "&D&b&b&P of &p";
 
-                    // use some advanced features ...
+                // use some advanced features ...
                     printer.SetMarginMeasure(2); // set units to inches
                     printer.leftMargin = 1.5f;
                     printer.topMargin = 1;
                     printer.rightMargin = 1;
                     printer.bottomMargin = 1;
 
-                    switch (operation)
-                    {
-                        case PrintOperation.Print:
-                            printer.Print(false); // prompt will only be obeyed on intranet
-                            break;
+                switch (operation)
+                {
+                    case PrintOperation.Print:
+                        printer.Print(false); // prompt will only be obeyed on intranet
+        printer.Print(false); 
+                        break;
 
-                        case PrintOperation.Preview:
-                            printer.Preview();
-                            break;
-                    }
+                    case PrintOperation.Preview:
+                        printer.Preview();
+                        break;
+                }
                 }
                 catch (COMException sxException)
                 {
@@ -121,13 +122,19 @@ namespace WpfApplicationWalkthrough
             }
         }
 
+/// <summary>
+/// Returns the ScriptX 'Printer' object initialised to
+/// print/preview with the content of the web browser control
+/// </summary>
         private ScriptX.printing HtmlPrinter
         {
             get
             {
+                // locate any current ScriptX factory in the displayed document
+                // and if none, create one
                 var document = (IHTMLDocument3) Browser.Document;
 
-                // 'de-facto' id is 'factory'
+                // the 'de-facto' id of the object is 'factory'
                 var factoryElement = (IHTMLObjectElement) document.getElementById("factory");
 
                 try
@@ -136,8 +143,7 @@ namespace WpfApplicationWalkthrough
                     if (factoryElement == null)
                     {
                         // the html to insert to put the ScriptX factory on the document.
-                        const string factoryObjectHtml =
-                            "<object id=\"factory\" style=\"display:none\" classid=\"clsid:1663ed61-23eb-11d2-b92f-008048fdd814\"></object>";
+                    const string factoryObjectHtml = "<object id=\"factory\" style=\"display:none\" classid=\"clsid:1663ed61-23eb-11d2-b92f-008048fdd814\"></object>";
 
                         // If not then create it.
                         ((IHTMLDocument2) Browser.Document).body.insertAdjacentHTML("beforeEnd",
@@ -156,6 +162,7 @@ namespace WpfApplicationWalkthrough
                             // init of the printing object so it must be able to freewheel on the UI.
                             ScriptX.printing printer = factory.printing;
                             return printer;
+
                         }
                     }
                 }
