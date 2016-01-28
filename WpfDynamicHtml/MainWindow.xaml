@@ -1,0 +1,32 @@
+﻿<Window x:Class="WpfDynamicHtml.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:WpfDynamicHtml"
+        xmlns:Printing="clr-namespace:System.Drawing.Printing;assembly=System.Drawing" 
+        Icon="./scriptx.ico" 
+        Title="ScriptX Sample :: Licensed Application" 
+        Height="320" Width="480" Loaded="Window_Loaded">
+    <Grid Background="AliceBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Column="1" Grid.Row="0" Text="Please enter your name:" FontSize="14" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10,10,10,4"></TextBlock>
+        <TextBox x:Name="NameTextBox" Grid.Row="0" Grid.Column="2" BorderThickness="2" VerticalAlignment="Bottom" Height="26" FontSize="14" KeyUp="NameTextBox_KeyUp"></TextBox>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" VerticalAlignment="Top">
+            <ComboBox x:Name="CmbPrinters" Width="250" Margin="10"
+                ItemsSource="{x:Static Printing:PrinterSettings.InstalledPrinters}"/>
+            <Button x:Name="BtnPrint" Content="Print" Margin="0,10,0,10" Padding="10,2" Click="BtnPrint_OnClick"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
+

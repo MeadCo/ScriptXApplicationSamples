@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{C2676582-0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApplicationWalkthrough", "WpfApplicationWalkthrough\WpfApplicationWalkthrough.csproj", "{1406A4FD-ABB4-46C5-8E52-77C2BC6ABD48}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfDynamicHtml", "WpfDynamicHtml\WpfDynamicHtml.csproj", "{A5E1CDF8-C61C-4D9B-B8A8-2E588C859AEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{1406A4FD-ABB4-46C5-8E52-77C2BC6ABD48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1406A4FD-ABB4-46C5-8E52-77C2BC6ABD48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1406A4FD-ABB4-46C5-8E52-77C2BC6ABD48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5E1CDF8-C61C-4D9B-B8A8-2E588C859AEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5E1CDF8-C61C-4D9B-B8A8-2E588C859AEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5E1CDF8-C61C-4D9B-B8A8-2E588C859AEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5E1CDF8-C61C-4D9B-B8A8-2E588C859AEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
