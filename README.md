@@ -1,7 +1,5 @@
 # ScriptXApplicationSamples
-A Visual Studio 2015 Solution with projects illustrating the use of ScriptX (free and licensed) in various .NET (WPF/XAML) apps. 
-Although the solution is for Visual Studio 2015 and the sample uses c# 6 string interpolation the code for 
-performing printing can be used with earlier versions of Visual Studio and c#.
+A Visual Studio 2013/2015 Solution with projects illustrating the use of ScriptX (free and licensed) to print HTML content in .NET (WPF/XAML) C# desktop applications.
 
 ## WpfApplicationFreeUse ##
 Illustrates using basic ScriptX capabilities (aka free) to print the content of the XAML WebBrowser element. 
@@ -16,6 +14,9 @@ formatting headers / footers](http://scriptx.meadroid.com/knowledge-bank/technic
 
 ## WpfApplicationWalkthrough ##
 The full source code for the sample application developed in the walkthrough. Please note that the license file is unlikely to work. Please contact MeadCo support for an evaluation license.
+
+## WpfDynamicHtml ##
+This sample illustrates constructing and printing an HTML document using printHTML(). 
 
 ## Source License ##
 The sources for these samples are free and unencumbered software released in the public domain.
